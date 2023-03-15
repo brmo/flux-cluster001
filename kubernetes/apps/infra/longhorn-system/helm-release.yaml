@@ -26,8 +26,8 @@ spec:
         enable: false
     defaultSettings:
       backupstorePollInterval: 300
-      backupTarget: s3://backup-longhorn@il-central/
-      backupTargetCredentialSecret: longhorn-s3-backups-secrets
+      # backupTarget: s3://backup-longhorn@il-central/
+      # backupTargetCredentialSecret: longhorn-s3-backups-secrets
       createDefaultDiskLabeledNodes: true
       defaultDataLocality: best-effort
       nodeDownPodDeletionPolicy: delete-both-statefulset-and-deployment-pod
