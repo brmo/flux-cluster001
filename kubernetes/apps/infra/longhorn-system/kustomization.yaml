@@ -4,7 +4,7 @@ kind: Kustomization
 resources:
   - helm-release.yaml
 #  - longhorn-secrets.sops.yaml
-#  - prometheus-rules.yaml
-#  - recurringjobs-release.yaml
-#  - service-monitor.yaml
-#  - storageclass.yaml
+  - prometheus-rules.yaml
+  - recurringjobs-release.yaml
+  - service-monitor.yaml
+  - storageclass.yaml
