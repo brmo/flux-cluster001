@@ -22,6 +22,8 @@ spec:
       defaultClass: true
       defaultClassReplicaCount: 2
       reclaimPolicy: Retain
+      recurringJobSelector:
+        enable: false
     defaultSettings:
       backupstorePollInterval: 300
       backupTarget: s3://backup-longhorn@il-central/
