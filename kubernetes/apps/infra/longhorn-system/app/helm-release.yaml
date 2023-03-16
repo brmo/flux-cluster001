@@ -30,6 +30,7 @@ spec:
       # backupTargetCredentialSecret: longhorn-s3-backups-secrets
       createDefaultDiskLabeledNodes: true
       defaultDataLocality: best-effort
+      defaultDataPath: "/longhornData/"
       nodeDownPodDeletionPolicy: delete-both-statefulset-and-deployment-pod
       concurrentAutomaticEngineUpgradePerNodeLimit: 1
       storageMinimalAvailablePercentage: 10
