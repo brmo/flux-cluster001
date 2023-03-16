@@ -37,19 +37,8 @@ spec:
       defaultLonghornStaticStorageClass: longhorn
     ingress:
       enabled: true
-      className: nginx
+      ingressClassName: nginx
       annotations:
         hajimari.io/icon: mdi:kubernetes
-        nginx.ingress.kubernetes.io/whitelist-source-range: |
-            10.0.0.0/8,172.16.0.0/12,192.168.0.0/16
-      hosts:
-        - host: &host "longhorn.${SECRET_DOMAIN}"
-          paths:
-            - path: /
-              backend:
-                serviceName: longhorn-frontend
-                servicePort: 80
-      tls:
-        - hosts:
-            - *host
+      host: longhorn.${SECRET_DOMAIN}
 
