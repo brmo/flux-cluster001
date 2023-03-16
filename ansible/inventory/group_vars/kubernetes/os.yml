@@ -32,3 +32,6 @@ ubuntu:
     - socat
     - python3-kubernetes
     - python3-yaml
+    - open-iscsi
+    - lvm2
+    - parted

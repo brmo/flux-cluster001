@@ -1,0 +1,38 @@
+---
+- hosts:
+    - master
+    - worker
+  become: true
+  tasks:
+    - name: create partition
+      community.general.parted:
+        device: /dev/sdb
+        number: 1
+        flags: [ lvm ]
+        state: present
+    - name: task for creating volume group
+      lvg:
+        vg: longhorn-vg
+        pvs: /dev/sdb1
+        pesize: 128K
+    - name: task for creating logical volume
+      lvol:
+          vg: longhorn-vg
+          lv:  data
+          size: 240G
+          force: yes
+    - name: Create directory longhornData if does not exist
+      file:
+        path: /longhornData
+        state: directory
+        mode: '0755'
+    - name: format the ext4 filesystem
+      filesystem:
+        fstype: ext4
+        dev: /dev/longhorn-vg/data
+    - name: mount the lv on /longhornData
+      mount:
+        path: /longhornData
+        src: /dev/longhorn-vg/data
+        fstype: ext4
+        state: mounted
