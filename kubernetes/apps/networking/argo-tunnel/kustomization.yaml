@@ -15,6 +15,6 @@ spec:
       kind: ImageRepository
       metadata:
         name: argo-tunnel
-      namespace: networking
+        namespace: networking
   interval: 30m
   timeout: 5m
