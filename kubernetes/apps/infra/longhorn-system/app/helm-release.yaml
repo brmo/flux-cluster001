@@ -46,7 +46,9 @@ spec:
         - host: &host "longhorn.${SECRET_DOMAIN}"
           paths:
             - path: /
-              pathType: Prefix
+              backend:
+                serviceName: longhorn-frontend
+                servicePort: 80
       tls:
         - hosts:
             - *host
