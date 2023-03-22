@@ -14,7 +14,7 @@
       lvg:
         vg: longhorn-vg
         pvs: /dev/sdb1
-        pesize: 128K
+        pesize: 4K
     - name: task for creating logical volume
       lvol:
           vg: longhorn-vg
