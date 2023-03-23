@@ -11,9 +11,9 @@ spec:
     kind: GitRepository
     name: home-kubernetes
  healthChecks:
-    - apiVersion: image.toolkit.fluxcd.io/v2beta1
-      kind: ImageRepository
-      name: argo-tunnel
+    - apiVersion: helm.toolkit.fluxcd.io/v2beta1
+      kind: HelmRelease
+      name: cloudflare
       namespace: networking
   interval: 30m
   retryInterval: 1m

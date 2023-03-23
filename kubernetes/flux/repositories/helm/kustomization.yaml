@@ -4,6 +4,7 @@ kind: Kustomization
 resources:
   - ./bitnami.yaml
   - ./bjw-s.yaml
+  - ./cloudflare.yaml
   - ./dysnix-charts.yaml
   - ./external-dns.yaml
   - ./hajimari.yaml
