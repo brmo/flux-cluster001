@@ -2,7 +2,7 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
 kind: Kustomization
 metadata:
-  name: cluster-networking-argo-tunnel
+  name: cluster-networking-cloudflare-tunnel
   namespace: flux-system
 spec:
   path: ./kubernetes/apps/networking/cloudflare-tunnel/app
