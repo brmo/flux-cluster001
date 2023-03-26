@@ -5,8 +5,5 @@ namespace: networking
 resources:
   - ./deployment.yaml
   - ./configmap.yaml
-  - ./poddisruptionbudget.yaml
   - ./service.yaml
-  - ./servicemonitor.yaml
-  - ./serviceaccount.yaml
   - ./secret.sops.yaml
