@@ -14,4 +14,6 @@ data:
     ingress:
       - hostname: echo-server.lab119.xyz
         service: http://echo-server.lab119.xyz
+      - hostname: hajamari.lab119.xyz
+        service: hajimari
       - service: http_status:404
