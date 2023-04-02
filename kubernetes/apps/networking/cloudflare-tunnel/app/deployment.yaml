@@ -59,11 +59,11 @@ spec:
               subPath: config.yaml
       volumes:
         - name: tunnel-secret-volume
-        secret:
-          defaultMode: 420
-          optional: false
-          readonly: true
-          secretName: cloudflare-tunnel-secrets
+          secret:
+            defaultMode: 420
+            optional: false
+            readonly: true
+            secretName: cloudflare-tunnel-secrets
       - name: cloudflared-config-volume
         configMap:
           defaultMode: 420
