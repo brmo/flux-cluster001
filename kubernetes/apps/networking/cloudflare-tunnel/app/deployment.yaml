@@ -64,9 +64,9 @@ spec:
             optional: false
             readonly: true
             secretName: cloudflare-tunnel-secrets
-      - name: cloudflared-config-volume
-        configMap:
-          defaultMode: 420
-          name: cloudflared
-          readonly: true
-          optional: false
+        - name: cloudflared-config-volume
+          configMap:
+            defaultMode: 420
+            name: cloudflared
+            readonly: true
+            optional: false
