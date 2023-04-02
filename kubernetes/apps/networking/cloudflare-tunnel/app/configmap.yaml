@@ -13,5 +13,5 @@ data:
     logDirectory: /var/log/cloudflared
     ingress:
       - hostname: echo-server.lab119.xyz
-        service: echo-server
-      - service: http-status:404
+        service: http://echo-server.lab119.xyz
+      - service: http_status:404
