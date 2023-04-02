@@ -1,3 +1,4 @@
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -20,10 +21,10 @@ spec:
               containerPort: 2000
               protocol: TCP
           args:
-              - tunnel
-              - --config
-              - /etc/cloudflared/config/config.yaml
-              - run
+            - tunnel
+            - --config
+            - /etc/cloudflared/config/config.yaml
+            - run
           livenessProbe:
             httpGet:
               # Cloudflared has a /ready endpoint which returns 200 if and only if
@@ -56,5 +57,5 @@ spec:
           configMap:
             name: cloudflared
             items:
-            - key: config.yaml
-              path: config.yaml
+              - key: config.yaml
+                path: config.yaml
