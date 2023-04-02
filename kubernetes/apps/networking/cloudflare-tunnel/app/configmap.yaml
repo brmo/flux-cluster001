@@ -7,9 +7,9 @@ metadata:
 data:
   config.yaml: |
     tunnel: 054ae824-08e6-42b6-ad80-83e873eb01bf
-    credentials-file: /etc/cloudflared/creds/credentials.json
+    credentials-file: /etc/cloudflared/tunnel-config.json
     metrics: 0.0.0.0:2000
-    no-autoupdate: true
+    logDirectory: /var/log/cloudflared
     ingress:
       - hostname: echo-server.lab119.xyz
         service: echo-server
