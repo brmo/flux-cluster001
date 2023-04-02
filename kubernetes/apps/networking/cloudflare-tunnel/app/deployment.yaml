@@ -10,7 +10,6 @@ spec:
     matchLabels:
       - cloudflared
   template:
-    metadata:
     spec:
       containers:
         - name: cloudflared
