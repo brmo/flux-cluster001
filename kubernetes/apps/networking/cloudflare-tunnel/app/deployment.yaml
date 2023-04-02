@@ -31,7 +31,6 @@ spec:
           args:
             - tunnel
             - --config
-            - --no-autoupdate
             - /etc/cloudflared/config/config.yaml
             - run
           livenessProbe:
