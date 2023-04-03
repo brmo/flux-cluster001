@@ -12,6 +12,5 @@ data:
     no-autoupdate: true
     logDirectory: /var/log/cloudflared
     ingress:
-      - hostname: echo-server.lab119.xyz
-        service: http://ingress-nginx-controller.networking.svc.cluster.local.:80
+      - service: http://ingress-nginx-controller.networking.svc.cluster.local.:80
       - service: http_status:404
