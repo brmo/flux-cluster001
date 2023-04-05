@@ -17,4 +17,4 @@ resources:
   - ./metrics-server.yaml
   - ./stakater.yaml
   - ./weave-gitops.yaml
-  - ./zekker6-memos.yaml
+  - ./zekker6-charts.yaml
