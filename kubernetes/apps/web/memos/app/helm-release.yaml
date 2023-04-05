@@ -8,8 +8,8 @@ spec:
   interval: 10m0s
   chart:
     spec:
-      chart: app-template
-      version: 0.4.3
+      chart: memos
+      version: 0.5.1
       interval: 10m0s
       sourceRef:
         kind: HelmRepository
