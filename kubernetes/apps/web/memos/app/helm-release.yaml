@@ -1,0 +1,42 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: memos
+  namespace: web
+spec:
+  interval: 10m0s
+  chart:
+    spec:
+      chart: app-template
+      version: 0.4.3
+      interval: 10m0s
+      sourceRef:
+        kind: HelmRepository
+        name: zekker6-charts
+        namespace: apps
+  values:
+    image:
+      repository: neosmemo/memos
+      pullPolicy: IfNotPresent
+      tag: 0.1.2
+    service:
+      main:
+        ports:
+          http:
+            port: 5230
+    ingress:
+      main:
+        enabled: true
+        ingressClassName: "nginx"
+        annotations:
+          external-dns.alpha.kubernetes.io/target: "${SECRET_CLOUDFLARE_TUNNEL_ID}.cfargotunnel.com"
+        hosts:
+          - host: &host "memos.${BASE_DOMAIN}"
+            paths:
+              - path: /
+    persistence:
+      data:
+        enabled: true
+        mountPath: /var/opt/memos
+        existingClaim: memos-data
