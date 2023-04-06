@@ -32,7 +32,7 @@ spec:
         annotations:
           external-dns.alpha.kubernetes.io/target: "${SECRET_CLOUDFLARE_TUNNEL_ID}.cfargotunnel.com"
         hosts:
-          - host: &host "memos.${BASE_DOMAIN}"
+          - host: &host "memos.${SECRET_DOMAIN}"
             paths:
               - path: /
     persistence:
