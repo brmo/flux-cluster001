@@ -3,7 +3,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: adguardhome-data
-  namespace: web
+  namespace: networking
 spec:
   storageClassName: longhorn
   accessModes:
