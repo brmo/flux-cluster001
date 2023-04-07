@@ -17,6 +17,7 @@ resources:
   - ./metallb.yaml
   - ./metrics-server.yaml
   - ./stakater.yaml
+  - ./truecharts.yaml
   - ./weave-gitops.yaml
   - ./vmware-tanzu-charts.yaml
   - ./zekker6-charts.yaml
