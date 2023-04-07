@@ -6,4 +6,5 @@ resources:
   - ./changedetection/kustomization.yaml
   - ./memos/kustomization.yaml
   - ./miniflux/kustomization.yaml
+  - ./triliumnotes/kustomization.yaml
   - ./vaultwarden/kustomization.yaml
