@@ -5,4 +5,5 @@ resources:
   - ./namespace.yaml
   - ./changedetection/kustomization.yaml
   - ./memos/kustomization.yaml
+  - ./miniflux/kustomization.yaml
   - ./vaultwarden/kustomization.yaml

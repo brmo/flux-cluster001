@@ -1,0 +1,66 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: miniflux
+  namespace: web
+spec:
+  interval: 10m0s
+  chart:
+    spec:
+      chart: miniflux
+      version: 0.4.8
+      interval: 10m0s
+      sourceRef:
+        kind: HelmRepository
+        name: gabe565-charts
+        namespace: flux-system
+
+  values:
+    image:
+      repository: ghcr.io/miniflux/miniflux
+      pullPolicy: IfNotPresent
+      tag: 2.0.43
+
+    env:
+      # -- Postgresql connection parameters. Will be generated if Postgresql subchart is enabled. [[ref]](https://miniflux.app/docs/configuration.html#database-url)
+      DATABASE_URL: ""
+      # -- Set to `1` to create an admin user from environment variables.
+      CREATE_ADMIN: "1"
+      # -- Admin user login, it's used only if `CREATE_ADMIN` is enabled.
+      ADMIN_USERNAME: admin
+      # -- Admin user password, it's used only if `CREATE_ADMIN` is enabled.
+      ADMIN_PASSWORD: changeme1234
+
+    controller:
+      strategy: RollingUpdate
+
+    service:
+      main:
+        ports:
+          http:
+            port: 8080
+
+    ingress:
+      main:
+        enabled: true
+        ingressClassName: "nginx"
+        annotations:
+          external-dns.alpha.kubernetes.io/target: "${SECRET_CLOUDFLARE_TUNNEL_ID}.cfargotunnel.com"
+        hosts:
+          - host: &host "rss.${SECRET_DOMAIN}"
+            paths:
+              - path: /
+
+    postgresql:
+      enabled: true
+      auth:
+        database: miniflux
+        postgresPassword: "${SECRET_MINIFLUX_POSTGRESS_PASSWORD}"
+        # Uncomment to create a non-root user
+        # username: miniflux
+        # password: changeme
+      persistence:
+        enabled: true
+        storageClass: "longhorn"
+        size: 8Gi
