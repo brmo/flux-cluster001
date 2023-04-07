@@ -8,8 +8,8 @@ spec:
   interval: 10m0s
   chart:
     spec:
-      chart: c
-      version: 0.5.1
+      chart: changedetection-io
+      version: 0.5.3
       interval: 10m0s
       sourceRef:
         kind: HelmRepository
