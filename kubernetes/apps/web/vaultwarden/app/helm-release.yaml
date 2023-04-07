@@ -1,0 +1,72 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: vaultwarden
+  namespace: web
+spec:
+  interval: 10m0s
+  chart:
+    spec:
+      chart: vaultwarden
+      version: 0.6.4
+      interval: 10m0s
+      sourceRef:
+        kind: HelmRepository
+        name: gabe565-charts
+        namespace: flux-system
+  values:
+    image:
+      repository: ghcr.io/dani-garcia/vaultwarden
+      pullPolicy: IfNotPresent
+      tag: 1.28.1-alpine
+    env:
+      TZ: America/Los_Angeles
+      ADMIN_TOKEN: "${SECRET_VAULTWARDEN_ADMIN_TOKEN}"
+    service:
+      main:
+        ports:
+          http:
+            port: 80
+          websocket:
+            port: 3012
+    ingress:
+      main:
+        enabled: true
+        ingressClassName: "nginx"
+        annotations:
+          external-dns.alpha.kubernetes.io/target: "${SECRET_CLOUDFLARE_TUNNEL_ID}.cfargotunnel.com"
+        hosts:
+          - host: &host "vault.${SECRET_DOMAIN}"
+            paths:
+          - path: /
+            pathType: Prefix
+            service:
+              port: 80
+          - path: /notifications/hub/negotiate
+            pathType: Prefix
+            service:
+              port: 80
+          - path: /notifications/hub
+            pathType: Prefix
+            service:
+              port: 3012
+    persistence:
+      data:
+        enabled: true
+        retain: true
+        existingClaim: vaultwarden-data
+
+    mariadb:
+      enabled: true
+      auth:
+        database: vaultwarden
+        username: vaultwarden
+        password: "${SECRET_VAULTWARDEN_DB_PASS}"
+        rootPassword: "${SECRET_VAULTWARDEN_DB_ROOTPASS}"
+      primary:
+        persistence:
+          enabled: true
+          mountPath: /var/lib/mysql
+          existingClaim: vaultwarden-db-data
+          retain: true
