@@ -1,0 +1,61 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: changedetection-io
+  namespace: web
+spec:
+  interval: 10m0s
+  chart:
+    spec:
+      chart: c
+      version: 0.5.1
+      interval: 10m0s
+      sourceRef:
+        kind: HelmRepository
+        name: gabe565-charts
+        namespace: flux-system
+  values:
+    image:
+      repository: ghcr.io/dgtlmoon/changedetection.io
+      pullPolicy: IfNotPresent
+      tag: 0.41
+    env:
+      TZ: America/Los_Angeles
+    service:
+      main:
+        ports:
+          http:
+            port: 5000
+    ingress:
+      main:
+        enabled: true
+        ingressClassName: "nginx"
+        annotations:
+          external-dns.alpha.kubernetes.io/target: "${SECRET_CLOUDFLARE_TUNNEL_ID}.cfargotunnel.com"
+        hosts:
+          - host: &host "changedetection.${SECRET_DOMAIN}"
+            paths:
+              - path: /
+    persistence:
+      data:
+        enabled: true
+        mountPath: /datastore
+        existingClaim: changedetection-data
+
+    browserless:
+      # -- Enable Browserless sidecar
+      enabled: true
+      image:
+        # -- Browserless image repository
+        repository: browserless/chrome
+        # -- Browserless image tag
+        tag: latest
+        # -- Browserless image pull policy
+        pullPolicy: Always
+      # -- Browserless environment variables. [[ref]](https://docs.browserless.io/docs/docker.html)
+      # @default -- See [values.yaml](./values.yaml)
+      env:
+        ENABLE_DEBUGGER: "false"
+        DEFAULT_BLOCK_ADS: "true"
+        DEFAULT_STEALTH: "true"
