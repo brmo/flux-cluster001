@@ -69,7 +69,7 @@ spec:
       config:
         enabled: true
         retain: true
-        existingClaim: adguardhome-data
+        existingClaim: adguardhome-config
         mountPath:  /opt/adguardhome/conf
       data:
         enabled: true
