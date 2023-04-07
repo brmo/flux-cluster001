@@ -60,7 +60,7 @@ spec:
         externalTrafficPolicy: Local
         annotations:
           coredns.io/hostname: "omada.${SECRET_DOMAIN}"
-          metallb.universe.tf/allow-shared-ip: default-lb
+          metallb.universe.tf/allow-shared-ip: default-pool
           # metallb.universe.tf/loadBalancerIPs: "192.168.42.8"
         ports:
           mgmt-8088-tcp:
