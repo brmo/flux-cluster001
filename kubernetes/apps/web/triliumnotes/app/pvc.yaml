@@ -4,6 +4,8 @@ kind: PersistentVolumeClaim
 metadata:
   name: triliumnotes-data
   namespace: web
+  annotations:
+    recurring-job-group.longhorn.io/critical=enabled
 spec:
   storageClassName: longhorn
   accessModes:
