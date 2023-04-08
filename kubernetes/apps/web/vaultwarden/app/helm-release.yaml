@@ -57,17 +57,3 @@ spec:
         retain: true
         existingClaim: vaultwarden-data
         mountPath: /data
-
-    mariadb:
-      enabled: true
-      auth:
-        database: vaultwarden
-        username: vaultwarden
-        password: "${SECRET_VAULTWARDEN_DB_PASS}"
-        rootPassword: "${SECRET_VAULTWARDEN_DB_ROOTPASS}"
-      primary:
-        persistence:
-          enabled: true
-          mountPath: /var/lib/mysql
-          existingClaim: vaultwarden-db-data
-          retain: true
