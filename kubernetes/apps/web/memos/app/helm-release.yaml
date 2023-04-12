@@ -9,7 +9,7 @@ spec:
   chart:
     spec:
       chart: memos
-      version: 0.5.1
+      version: 0.6.1
       interval: 10m0s
       sourceRef:
         kind: HelmRepository
