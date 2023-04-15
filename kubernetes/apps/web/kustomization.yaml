@@ -7,3 +7,4 @@ resources:
   - ./memos/kustomization.yaml
   - ./miniflux/kustomization.yaml
   - ./triliumnotes/kustomization.yaml
+  - ./vw/kustomization.yaml
