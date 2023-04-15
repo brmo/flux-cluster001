@@ -1,0 +1,28 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: vaultwarden
+  namespace: vaultwarden
+  annotations:
+    kubernetes.io/ingress.class: external
+    external-dns.alpha.kubernetes.io/target: "${SECRET_CLOUDFLARE_TUNNEL_ID}.cfargotunnel.com"
+spec:
+  rules:
+    - host: "vault.${SECRET_DOMAIN}"
+      http:
+        paths:
+          - backend:
+              service:
+                name: vaultwarden
+                port:
+                  name: http
+            path: /
+            pathType: Prefix
+          - backend:
+              service:
+                name: vaultwarden
+                port:
+                  name: websocket
+            path: /notifications/hub
+            pathType: Prefix
