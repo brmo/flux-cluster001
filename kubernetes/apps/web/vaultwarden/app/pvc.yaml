@@ -11,17 +11,3 @@ spec:
   resources:
     requests:
       storage: 250M
-
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: vaultwarden-db-data
-  namespace: web
-spec:
-  storageClassName: longhorn
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 1G
