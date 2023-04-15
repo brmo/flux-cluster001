@@ -10,6 +10,7 @@ metadata:
 spec:
   rules:
     - host: "vault.${SECRET_DOMAIN}"
+      ingressClassName: "nginx"
       http:
         paths:
           - backend:
