@@ -8,9 +8,9 @@ metadata:
     kubernetes.io/ingress.class: external
     external-dns.alpha.kubernetes.io/target: "${SECRET_CLOUDFLARE_TUNNEL_ID}.cfargotunnel.com"
 spec:
+  ingressClassName: "nginx"
   rules:
     - host: "vault.${SECRET_DOMAIN}"
-      ingressClassName: "nginx"
       http:
         paths:
           - backend:
