@@ -18,9 +18,9 @@ spec:
       containers:
         - image: vaultwarden/server:1.28.1-alpine
           name: vaultwarden
-          env:
-            - name: WEBSOCKET_ENABLED
-              value: 'true'
+          envFrom:
+            - configMapRef:
+              name: vaultwarden-config
           resources:
             requests:
               cpu: 100m
