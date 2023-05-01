@@ -20,7 +20,7 @@ spec:
           name: vaultwarden
           envFrom:
             - configMapRef:
-              name: vaultwarden-config
+                name: vaultwarden-config
           resources:
             requests:
               cpu: 100m
