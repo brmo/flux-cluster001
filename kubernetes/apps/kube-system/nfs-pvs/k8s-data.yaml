@@ -12,8 +12,8 @@ spec:
     - ReadWriteMany
   persistentVolumeReclaimPolicy: Retain
   nfs:
-    server: 
-    path: "/mnt/tank/data"
+    server: "172.20.20.250"
+    path: "/export/k8s-data"
   mountOptions:
   - nfsvers=3
   - tcp
