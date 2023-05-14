@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: outline
+  namespace: web
+data:
+  AWS_REGION: "us-east-1"
+  AWS_S3_ACL: private
+  AWS_S3_FORCE_PATH_STYLE: "true"
+  AWS_S3_UPLOAD_BUCKET_NAME: wiki
+  AWS_S3_UPLOAD_BUCKET_URL: http://localhost:9000
+  AWS_S3_UPLOAD_MAX_SIZE: "26214400"
+  DEBUG: cache,presenters,events,emails,mailer,utils,multiplayer,server,services
+  DEFAULT_LANGUAGE: en_US
+  ENABLE_UPDATES: "true"
+  FORCE_HTTPS: "true"
+  PGSSLMODE: disable
+  PORT: "80"
+  SMTP_TLS_CIPHERS: "HIGH"
+  SMTP_SECURE: "true"
+  REDIS_URL: redis://localhost:6379
+  OIDC_USERNAME_CLAIM: preferred_username
+  OIDC_DISPLAY_NAME: Authentik
+  OIDC_SCOPES: openid profile email
