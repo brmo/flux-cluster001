@@ -35,10 +35,6 @@ spec:
               name: outline
           ports:
             - containerPort: 80
-          resources:
-            limits:
-              memory: "256Mi"
-              cpu: "500m"
         - name: postgres
           volumeMounts:
           - name: outline-db
@@ -52,10 +48,6 @@ spec:
               name: outline
           ports:
             - containerPort: 5432
-          resources:
-            limits:
-              memory: "256Mi"
-              cpu: "500m"
         - name: redis
           image: redis:latest
           ports:
@@ -74,10 +66,6 @@ spec:
               name: outline
           ports:
             - containerPort: 9000
-          resources:
-            limits:
-              memory: "256Mi"
-              cpu: "500m"
           readinessProbe:
             httpGet:
               path: /minio/health/ready
