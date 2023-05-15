@@ -70,6 +70,11 @@ main() {
             > "${PROJECT_DIR}/kubernetes/apps/infra/longhorn-system/app/secrets.sops.yaml"
         sops --encrypt --in-place "${PROJECT_DIR}/kubernetes/apps/infra/longhorn-system/app/secrets.sops.yaml"
 
+        envsubst < "${PROJECT_DIR}/tmpl/kubernetes/outline-secrets.sops.yaml" \
+            > "${PROJECT_DIR}/kubernetes/apps/web/outline/app/secrets.sops.yaml"
+        sops --encrypt --in-place "${PROJECT_DIR}/kubernetes/apps/web/outline/app/secrets.sops.yaml"
+
+
         envsubst < "${PROJECT_DIR}/tmpl/terraform/secret.sops.yaml" \
             > "${PROJECT_DIR}/terraform/cloudflare/secret.sops.yaml"
         sops --encrypt --in-place "${PROJECT_DIR}/terraform/cloudflare/secret.sops.yaml"
