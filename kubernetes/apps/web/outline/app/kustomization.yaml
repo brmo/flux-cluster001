@@ -6,3 +6,6 @@ resources:
   - deployment.yaml
   - ingress.yaml
   - service.yaml
+  - configmap.yaml
+  - pvc.yaml
+  - secrets.sops.yaml
