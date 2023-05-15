@@ -8,4 +8,4 @@ resources:
   - service.yaml
   - configmap.yaml
   - pvc.yaml
-  # - secrets.sops.yaml
+  - secrets.sops.yaml
