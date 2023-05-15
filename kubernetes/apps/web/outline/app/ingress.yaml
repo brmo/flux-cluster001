@@ -19,3 +19,10 @@ spec:
                 name: outline
                 port:
                   name: http
+          - backend:
+              service:
+                name: outline
+                port:
+                  name: websocket
+            path: /
+            pathType: Prefix

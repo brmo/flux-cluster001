@@ -8,5 +8,9 @@ spec:
     - port: 80
       targetPort: 80
       protocol: TCP
+    - protocol: TCP
+      port: 3000
+      targetPort: 3000
+      name: websocket
   selector:
     app: outline
