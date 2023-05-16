@@ -19,11 +19,11 @@ spec:
                 port:
                   name: http
             path: /
-            pathType: Prefix
+            pathType: ImplementationSpecific
           - backend:
               service:
                 name: vaultwarden
                 port:
                   name: websocket
             path: /notifications/hub
-            pathType: Prefix
+            pathType: ImplementationSpecific
