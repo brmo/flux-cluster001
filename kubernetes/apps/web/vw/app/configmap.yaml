@@ -5,8 +5,9 @@ metadata:
   namespace: web
   labels:
     app.kubernetes.io/component: vaultwarden
-data:
+stringData:
   DOMAIN: "https://vault.${SECRET_DOMAIN}"
+  IP_HEADER: "Cf-Connecting-Ip"
   SMTP_HOST: "${SECRET_EMAIL_SERVER}"
   SMTP_SECURITY: "${SECRET_EMAIL_SECURITY}"
   SMTP_PORT: "25587"
@@ -26,3 +27,4 @@ data:
   SIGNUPS_DOMAINS_WHITELIST: "['lab17.us']"
   SIGNUPS_VERIFY: "False"
   WEB_VAULT_ENABLED: "True"
+  ADMIN_TOKEN: "${SECRET_VAULTWARDEN_ADMIN_TOKEN}"

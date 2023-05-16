@@ -3,7 +3,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: vaultwarden
-  namespace: vaultwarden
+  namespace: web
   annotations:
     kubernetes.io/ingress.class: external
     external-dns.alpha.kubernetes.io/target: "${SECRET_CLOUDFLARE_TUNNEL_ID}.cfargotunnel.com"
