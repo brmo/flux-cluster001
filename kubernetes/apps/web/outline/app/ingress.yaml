@@ -33,6 +33,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: minio-s3
+                name: outline
                 port:
                   name: minio-s3
