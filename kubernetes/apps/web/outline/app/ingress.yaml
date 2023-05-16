@@ -26,7 +26,7 @@ spec:
                   name: websocket
             path: /
             pathType: Prefix
-    - host: "outline-minio.${SECRET_DOMAIN}"
+    - host: "outline-minio-console.${SECRET_DOMAIN}"
       http:
         paths:
           - path: /
@@ -36,3 +36,13 @@ spec:
                 name: outline
                 port:
                   name: minio-console
+    - host: "outline-minio-s3.${SECRET_DOMAIN}"
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: outline
+                port:
+                  name: minio-s3
