@@ -26,3 +26,14 @@ spec:
                   name: websocket
             path: /
             pathType: Prefix
+    - host: "outline-minio.${SECRET_DOMAIN}"
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: minio-s3
+                port:
+                  name: http
+                  port: 9001
