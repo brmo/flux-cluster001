@@ -74,6 +74,10 @@ main() {
             > "${PROJECT_DIR}/kubernetes/apps/web/outline/app/secrets.sops.yaml"
         sops --encrypt --in-place "${PROJECT_DIR}/kubernetes/apps/web/outline/app/secrets.sops.yaml"
 
+        envsubst < "${PROJECT_DIR}/tmpl/kubernetes/vaultwarden-secrets.sops.yaml" \
+            > "${PROJECT_DIR}/kubernetes/apps/web/vaultwarden/app/secrets.sops.yaml"
+        sops --encrypt --in-place "${PROJECT_DIR}/kubernetes/apps/web/vaultwarden/app/secrets.sops.yaml"
+
 
         envsubst < "${PROJECT_DIR}/tmpl/terraform/secret.sops.yaml" \
             > "${PROJECT_DIR}/terraform/cloudflare/secret.sops.yaml"
