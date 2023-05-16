@@ -35,5 +35,4 @@ spec:
               service:
                 name: minio-s3
                 port:
-                  name: http
-                  port: 9001
+                  name: minio-s3
