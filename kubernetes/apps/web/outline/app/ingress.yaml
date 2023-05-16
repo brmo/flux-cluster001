@@ -35,4 +35,4 @@ spec:
               service:
                 name: outline
                 port:
-                  name: minio-s3
+                  name: minio-console
