@@ -5,7 +5,7 @@ metadata:
   namespace: web
   labels:
     app.kubernetes.io/component: vaultwarden
-stringData:
+data:
   DOMAIN: "https://vault.${SECRET_DOMAIN}"
   IP_HEADER: "Cf-Connecting-Ip"
   SMTP_HOST: "${SECRET_EMAIL_SERVER}"
