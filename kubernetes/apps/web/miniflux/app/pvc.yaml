@@ -1,0 +1,27 @@
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: miniflux-data
+  namespace: web
+spec:
+  storageClassName: longhorn
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 250M
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: miniflux-db
+  namespace: web
+spec:
+  storageClassName: longhorn
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 8G

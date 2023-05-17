@@ -20,7 +20,7 @@ spec:
     image:
       repository: ghcr.io/miniflux/miniflux
       pullPolicy: IfNotPresent
-      tag: 2.0.43
+      tag: 2.0.44
 
     env:
       # -- Postgresql connection parameters. Will be generated if Postgresql subchart is enabled. [[ref]](https://miniflux.app/docs/configuration.html#database-url)
@@ -56,11 +56,8 @@ spec:
       enabled: true
       auth:
         database: miniflux
-        postgresPassword: "${SECRET_MINIFLUX_POSTGRESS_PASSWORD}"
-        # Uncomment to create a non-root user
-        # username: miniflux
-        # password: changeme
+        postgresPassword: "${SECRET_MINIFLUX_POSTGRES_PASSWORD}"
       persistence:
         enabled: true
-        storageClass: "longhorn"
-        size: 8Gi
+        mountPath: /var/lib/postgres
+        existingClaim: miniflux-db
