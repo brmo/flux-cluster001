@@ -9,7 +9,7 @@ spec:
   chart:
     spec:
       chart: adguard-home
-      version: 0.1.1
+      version: 0.3.0
       interval: 10m0s
       sourceRef:
         kind: HelmRepository
