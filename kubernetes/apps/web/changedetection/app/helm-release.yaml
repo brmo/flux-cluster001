@@ -9,7 +9,7 @@ spec:
   chart:
     spec:
       chart: changedetection-io
-      version: 0.5.3
+      version: 0.7.0
       interval: 10m0s
       sourceRef:
         kind: HelmRepository
