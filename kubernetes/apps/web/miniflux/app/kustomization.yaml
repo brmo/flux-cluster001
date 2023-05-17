@@ -4,4 +4,3 @@ kind: Kustomization
 namespace: web
 resources:
   - helm-release.yaml
-  - pvc.yaml
