@@ -19,7 +19,7 @@ spec:
     image:
       repository: neosmemo/memos
       pullPolicy: IfNotPresent
-      tag: 0.12.2
+      tag: 0.13.0
     service:
       main:
         ports:
