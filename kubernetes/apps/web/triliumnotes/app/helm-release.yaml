@@ -9,7 +9,7 @@ spec:
   chart:
     spec:
       chart: trilium-notes
-      version: 8.0.13
+      version: 8.0.25
       interval: 10m0s
       sourceRef:
         kind: HelmRepository
