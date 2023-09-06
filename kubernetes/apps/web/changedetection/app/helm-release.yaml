@@ -19,7 +19,7 @@ spec:
     image:
       repository: ghcr.io/dgtlmoon/changedetection.io
       pullPolicy: IfNotPresent
-      tag: 0.43@sha256:c2c05cc886ed3ad3f0dd53a199a7139a979daa85a95a30987eff3cc06176ce98
+      tag: 0.45@sha256:07a846ee4858b93b8d926eef6dec15251c706220ce84f27cbccb38a0c57c15c4
     env:
       TZ: America/Los_Angeles
     service:
