@@ -20,7 +20,7 @@ spec:
     image:
       repository: ghcr.io/miniflux/miniflux
       pullPolicy: IfNotPresent
-      tag: 2.0.45
+      tag: 2.0.50
 
     env:
       # -- Postgresql connection parameters. Will be generated if Postgresql subchart is enabled. [[ref]](https://miniflux.app/docs/configuration.html#database-url)
