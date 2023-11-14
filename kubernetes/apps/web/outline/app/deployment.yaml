@@ -26,7 +26,7 @@ spec:
             claimName: outline-minio
       containers:
         - name: outline
-          image: outlinewiki/outline:0.70.1
+          image: outlinewiki/outline:0.73.1
           envFrom:
           - configMapRef:
               name: outline
