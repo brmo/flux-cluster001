@@ -19,7 +19,7 @@ spec:
     image:
       repository: tccr.io/truecharts/trilium-notes
       pullPolicy: IfNotPresent
-      tag: v0.60.4
+      tag: v0.61.14
     service:
       main:
         ports:
