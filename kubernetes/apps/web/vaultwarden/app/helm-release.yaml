@@ -9,7 +9,7 @@ spec:
   chart:
     spec:
       chart: vaultwarden
-      version: 0.8.0
+      version: 0.11.1
       interval: 10m0s
       sourceRef:
         kind: HelmRepository
